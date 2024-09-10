@@ -36,7 +36,11 @@
   &__code {
     font-size: 10px;
     margin-bottom: 6px;
-    color: var(--color-grey)
+    color: var(--color-grey);
+
+    &__hidden {
+      opacity: 0;
+    }
   }
 
   &__title {
@@ -63,7 +67,6 @@
   }
 
   &__button_list {
-    list-style: none;
     display: flex;
     column-gap: 11px;
   }

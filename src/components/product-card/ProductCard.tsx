@@ -30,7 +30,14 @@ const ProductCard: FC<ProductCardProps> = ({ code, name, image, price }) => {
     >
       <img className={cl.product_card__image} src={image.url} alt={""} />
       <div className={cl.product_card__body}>
-        {code && <span className={cl.product_card__code}>{code}</span>}
+        <span
+          className={clsx(
+            cl.product_card__code,
+            !code && cl.product_card__code__hidden,
+          )}
+        >
+          {code || "No code"}
+        </span>
         <h2 className={cl.product_card__title}>{name}</h2>
         <div className={cl.product_card__more_info}>
           <ul className={cl.product_card__price_list}>

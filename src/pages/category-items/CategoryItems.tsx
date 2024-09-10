@@ -1,24 +1,146 @@
 import { ProductCard } from "@components/product-card/ProductCard.tsx";
-
+import { Navigation } from "@components/navigation/Navigation.tsx";
+import cl from "./CategoryItems.module.scss";
 const CategoryItems = () => {
-  const data = {
-    id: "3",
-    name: "Стандартные петли",
-    code: "P424WN",
-    price: {
-      old_price: null,
-      current_price: 75,
+  const data = [
+    {
+      id: "1",
+      name: "Ручка дверная",
+      code: "L422WH",
+      price: {
+        old_price: 400,
+        current_price: 355,
+      },
+      image: {
+        url: "/pic/pic1.png",
+      },
+      material: 1,
     },
-    image: {
-      url: "/pic/pic3.png",
+    {
+      id: "2",
+      name: "Ручка, нержавеющ сталь",
+      code: "L423WH",
+      price: {
+        old_price: 400.9,
+        current_price: 355.555,
+      },
+      image: {
+        url: "/pic/pic2.png",
+      },
+      material: 2,
     },
-    material: 2,
-  };
+    {
+      id: "3",
+      name: "Стандартные петли",
+      code: "P424WN",
+      price: {
+        old_price: null,
+        current_price: 75,
+      },
+      image: {
+        url: "/pic/pic3.png",
+      },
+      material: 2,
+    },
+    {
+      id: "4",
+      name: "Петля со стопором",
+      code: "PW5AC",
+      price: {
+        old_price: 270,
+        current_price: 200,
+      },
+      image: {
+        url: "/pic/pic4.png",
+      },
+      material: 2,
+    },
+    {
+      id: "5",
+      name: "Ручка дверная",
+      code: "LM352",
+      price: {
+        old_price: null,
+        current_price: 720,
+      },
+      image: {
+        url: "/pic/pic1.png",
+      },
+      material: 1,
+    },
+    {
+      id: "6",
+      name: "Ручка, нержавеющ сталь",
+      code: null,
+      price: {
+        old_price: null,
+        current_price: 355.555,
+      },
+      image: {
+        url: "/pic/pic2.png",
+      },
+      material: 2,
+    },
+    {
+      id: "7",
+      name: "Стандартные петли",
+      code: "WD14LK",
+      price: {
+        old_price: null,
+        current_price: 75,
+      },
+      image: {
+        url: "/pic/pic3.png",
+      },
+      material: 2,
+    },
+    {
+      id: "8",
+      name: "Петля со стопором",
+      code: null,
+      price: {
+        old_price: 1200,
+        current_price: 900,
+      },
+      image: {
+        url: "/pic/pic4.png",
+      },
+      material: 2,
+    },
+  ];
+
+  const routes = [
+    {
+      name: "Главная",
+      to: "/",
+    },
+    {
+      name: "Системы хранения",
+      to: "/category/1",
+    },
+    {
+      name: "Комплект стеллажных систем",
+      to: "/category/1/series/1",
+    },
+  ];
 
   return (
-    <section>
-      <h1>Комплекты стеллажных систем</h1>
-      <ProductCard {...data} />
+    <section className={cl.products}>
+      <header className={cl.products__header}>
+        <Navigation routes={routes} />
+      </header>
+      <div className={cl.products__body}>
+        <h1 className={cl.products__title}>Комплекты стеллажных систем</h1>
+        <select></select>
+        <select></select>
+        <ul className={cl.products__list}>
+          {data.map((product) => (
+            <li className={cl.products__item} key={product.id}>
+              <ProductCard {...product} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };

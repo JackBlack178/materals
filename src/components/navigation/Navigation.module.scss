@@ -1,0 +1,41 @@
+@import "@styles/styles";
+
+.navigation {
+
+
+  &__list {
+    display: flex;
+    column-gap: 35px;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      color: var(--color-grey-link);
+
+      position: relative;
+
+      &:after {
+        content: '/';
+        position: absolute;
+        top:0;
+        right:-17px;
+
+      }
+    }
+
+    &:last-child {
+      color: var(--color-dark);
+    }
+
+  }
+
+  &__link {
+    text-decoration: none;
+    transition-duration: var(--duration);
+    color:inherit;
+
+    @include hover {
+      opacity: 0.8;
+    }
+  }
+}
