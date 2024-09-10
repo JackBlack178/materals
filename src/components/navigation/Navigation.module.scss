@@ -8,6 +8,7 @@
 
     display: flex;
     flex-wrap: wrap;
+    row-gap: 10px;
     column-gap: var(--columnGap);
 
     @include tablet {
@@ -43,7 +44,7 @@
     transition-duration: var(--duration);
     color:inherit;
 
-    @include fluid-text(16,11);
+    @include fluid-text(16,14);
 
     @include hover {
       opacity: 0.8;

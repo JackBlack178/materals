@@ -7,10 +7,8 @@ import { useGetSortedOptions } from "@pages/category-items/useMaterialOptions.ts
 import { store } from "@utils/store.ts";
 import { materialApi } from "@models/materials/materialApi.ts";
 import { productApi } from "@models/product/productApi.ts";
-import { useContext } from "react";
-import { UserContext } from "@utils/AuthProvider.tsx";
-import { userApi } from "@models/user/userApi.ts";
-import { isUser } from "@models/user/type.ts";
+
+import { useChangeCardState } from "@pages/category-items/useChangeCardState.ts";
 
 const routes = [
   {
@@ -58,51 +56,12 @@ const CategoryItems = () => {
     isSuccess: isSuccessItems,
   } = useSortedCards(materials);
 
+  const { handleBasketClick, handleHeartClick, favorites, groceryBasket } =
+    useChangeCardState();
+
   const isSuccess = isSuccessMaterials && isSuccessItems;
   const isLoading = isLoadingItems || isLoadingMaterials;
   const isError = isErrorItems || isErrorMaterials;
-
-  const userId = useContext(UserContext);
-  const { data } = userApi.useGetUserQuery(userId);
-  const user = isUser(data) ? data : null;
-  const favorites = user?.favorites;
-  const groceryBasket = user?.groceryBasket;
-
-  const [changeFavoriteState] = userApi.useChangeFavoriteStateMutation();
-  const [changeGroceryState] = userApi.useChangeGroceryStateMutation();
-
-  const handleHeartClick = (productId: string, newState: boolean) => {
-    if (userId && favorites) {
-      let newArray = [];
-      if (newState) newArray = [...favorites, productId];
-      else {
-        newArray = [...favorites].filter((id) => id !== productId);
-      }
-
-      changeFavoriteState({
-        userId,
-        newState: newArray,
-        productId,
-      });
-    }
-  };
-
-  const handleBasketClick = (productId: string, newState: boolean) => {
-    if (userId && groceryBasket) {
-      let newArray = [];
-      if (newState) newArray = [...groceryBasket, productId];
-      else {
-        newArray = [...groceryBasket].filter((id) => id !== productId);
-      }
-      console.log(newArray);
-
-      changeGroceryState({
-        userId,
-        newState: newArray,
-        productId,
-      });
-    }
-  };
 
   return (
     <section className={cl.products}>

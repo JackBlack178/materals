@@ -3,6 +3,10 @@
 .products {
   composes: container;
 
+  @include mobile {
+    padding-inline: 5px;
+  }
+
   &__header {
     margin-bottom: 32px;
   }
@@ -20,7 +24,12 @@
     column-gap: 24px;
 
     @include mobile {
-      display: block;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    @include mobile-s {
+      align-items: center;
     }
   }
 
@@ -30,8 +39,7 @@
     row-gap: 6px;
 
     @include mobile-s {
-      display: flex;
-      align-items: center;
+
     }
   }
 
@@ -55,6 +63,7 @@
 
     @include mobile {
       grid-template-columns: repeat(2, 1fr);
+      gap:15px 15px;
     }
 
     @include mobile-s {
