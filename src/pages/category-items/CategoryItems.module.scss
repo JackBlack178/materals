@@ -15,6 +15,34 @@
 
   }
 
+  &__search_list {
+    display: flex;
+    column-gap: 24px;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &__search_item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+
+    @include mobile-s {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__search_text {
+    padding-left:16px;
+  }
+
+  &__search_select {
+    width: 288px;
+  }
+
   &__list {
       display: grid;
       gap:40px 48px;

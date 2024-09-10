@@ -1,11 +1,19 @@
 @import "@styles/styles";
 
 .navigation {
-
+  --columnGap: 35px;
 
   &__list {
+
+
     display: flex;
-    column-gap: 35px;
+    flex-wrap: wrap;
+    column-gap: var(--columnGap);
+
+    @include tablet {
+      --columnGap: 25px;
+    }
+    
   }
 
   &__item {
@@ -18,7 +26,8 @@
         content: '/';
         position: absolute;
         top:0;
-        right:-17px;
+        right:calc(var(--columnGap) / 2 * -1);
+
 
       }
     }
@@ -33,6 +42,8 @@
     text-decoration: none;
     transition-duration: var(--duration);
     color:inherit;
+
+    @include fluid-text(16,11);
 
     @include hover {
       opacity: 0.8;
