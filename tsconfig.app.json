@@ -27,7 +27,7 @@
       "@models/*": ["src/models/*"],
       "@pages/*": ["src/pages/*"],
       "@utils/*": ["src/utils/*"],
-      "@app/*": ["src/app/*"]
+      "@app/*": ["src/app/*"],
     }
   },
   "include": ["src"],
