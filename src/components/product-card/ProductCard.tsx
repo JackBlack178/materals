@@ -9,9 +9,9 @@ import { Price } from "@components/price/Price.tsx";
 interface ProductCardProps {
   id: string;
   name: string;
-  code: string;
+  code: string | null;
   price: {
-    old_price?: number;
+    old_price?: number | null;
     current_price: number;
   };
   image: {
@@ -30,7 +30,7 @@ const ProductCard: FC<ProductCardProps> = ({ code, name, image, price }) => {
     >
       <img className={cl.product_card__image} src={image.url} alt={""} />
       <div className={cl.product_card__body}>
-        <span className={cl.product_card__code}>{code}</span>
+        {code && <span className={cl.product_card__code}>{code}</span>}
         <h2 className={cl.product_card__title}>{name}</h2>
         <div className={cl.product_card__more_info}>
           <ul className={cl.product_card__price_list}>

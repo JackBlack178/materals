@@ -1,17 +1,17 @@
 :root {
-    --duration: 0.3s;
+  --duration: 0.3s;
 
-    --font-family: "SF";
-    --second-family: "SF Pro";
+  --font-family: "SF";
+  --second-family: "SF Pro";
 
-    --color-dark: #000;
-    --color-light:#fff;
-    --color-grey:#888;
-    --color-grey-alt:#4f4f4f;
-    --color-green:#27ae60;
-    --color-red:#eb5757;
+  --color-dark: #000;
+  --color-light: #fff;
+  --color-grey: #888;
+  --color-grey-alt: #4f4f4f;
+  --color-green: #27ae60;
+  --color-red: #eb5757;
 
-    --container-padding-x: 20px;
-    --container-max-width:calc(1490px + var(--container-padding-x) * 2); //Ширина контента контейнера 1490px по макету
+  --container-padding-x: 20px;
+  --container-max-width: calc(1490px + var(--container-padding-x) * 2); //Ширина контента контейнера 1490px по макету
 
 }

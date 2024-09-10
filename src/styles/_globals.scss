@@ -1,8 +1,17 @@
 body {
-  font-family: var(--font-family), sans-serif ;
+  font-family: var(--font-family), sans-serif;
   font-weight: 400;
-  font-size:16px;
+
+  @include fluid-text(16, 14);
+
   line-height: 1.4;
   letter-spacing: 0.02em;
   color: var(--color-dark);
+}
+
+h1 {
+  @include fluid-text(36, 28);
+  font-family: var(--second-family), sans-serif;
+  font-weight: 600;
+  line-height: 1.33;
 }

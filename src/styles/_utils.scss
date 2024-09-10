@@ -1,7 +1,7 @@
 .container {
   max-width: calc(var(--container-width) + 2 * var(--container-padding-x));
   padding-inline: var(--container-padding-x);
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .visually-hidden { //to hide content such as h1,h2,... tags, and other for ceo optimization
@@ -14,7 +14,7 @@
   }
 }
 
-.visible-mobile {  //visible for only mobile
+.visible-mobile { //visible for only mobile
   @include mobile-above {
     display: none !important;
   }
