@@ -1,12 +1,18 @@
 import { useMemo, useState } from "react";
 import { SelectChangeEvent } from "@mui/material";
-import { Product } from "@models/product/type.ts";
+import { isArrayOfProducts } from "@models/product/types.ts";
 import { Material } from "@models/materials/type.ts";
+import { productApi } from "@models/product/productApi.ts";
+import { useParams } from "react-router-dom";
 
-export const useSortedCards = (
-  data: Product[],
-  materials: Readonly<Material[]>,
-) => {
+export const useSortedCards = (materials: Readonly<Material[]>) => {
+  const { id } = useParams();
+
+  const { data, isLoading, isError } = productApi.useGetProductsQuery(
+    id as string,
+  );
+  const products = isArrayOfProducts(data) ? data : [];
+
   const [sortType, setSortType] = useState<Sort>("asc");
   const [materialType, setMaterial] = useState<MaterialOptions>("Металл");
 
@@ -22,12 +28,13 @@ export const useSortedCards = (
   };
 
   const sortedByPrice = useMemo(() => {
-    return data.sort((a, b) =>
+    const newArr = [...products];
+    return newArr.sort((a, b) =>
       sortType === "asc"
         ? a.price.current_price - b.price.current_price
         : b.price.current_price - a.price.current_price,
     );
-  }, [sortType, data]);
+  }, [sortType, products]);
 
   const sortedByMaterials = useMemo(() => {
     const materialId = +materials.find((item) => item.name === materialType)
@@ -43,6 +50,8 @@ export const useSortedCards = (
     handleMaterialChange,
     sortType,
     materialType,
+    isLoading,
+    isError,
   };
 };
 
