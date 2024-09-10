@@ -1,0 +1,21 @@
+.container {
+  max-width: calc(var(--container-width) + 2 * var(--container-padding-x));
+  padding-inline: var(--container-padding-x);
+  margin:0 auto;
+}
+
+.visually-hidden { //to hide content such as h1,h2,... tags, and other for ceo optimization
+  @include visually-hidden;
+}
+
+.hidden-mobile { // Visible for only desktop and tablet
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.visible-mobile {  //visible for only mobile
+  @include mobile-above {
+    display: none !important;
+  }
+}
