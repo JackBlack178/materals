@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "@utils/reducer.ts";
 import { productApi } from "@models/product/productApi.ts";
 import { materialApi } from "@models/materials/materialApi.ts";
+import { userApi } from "@models/user/userApi.ts";
 
 export const store = configureStore({
   reducer: rootReducer,
@@ -10,5 +11,6 @@ export const store = configureStore({
     getDefaultMiddleware().concat(
       productApi.middleware,
       materialApi.middleware,
+      userApi.middleware,
     ),
 });

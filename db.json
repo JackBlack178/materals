@@ -122,14 +122,14 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Petr",
       "email": "Petr@mail.com",
       "favorites": [],
       "groceryBasket": []
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Ivan",
       "email": "Ivan@mail.com",
       "favorites": [],

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { rootReducer } from "@utils/reducer.ts";
-import { materialSchema } from "@models/materials/schema.ts";
+import { materialArraySchema } from "@models/materials/schema.ts";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
@@ -12,7 +12,7 @@ export const materialApi = createApi({
     getMaterials: builder.query<any, void>({
       query: () => `${baseUrl}/materials`,
       transformResponse: (response) => {
-        return materialSchema.parse(response);
+        return materialArraySchema.parse(response);
       },
     }),
   }),

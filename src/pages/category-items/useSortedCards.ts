@@ -5,12 +5,11 @@ import { Material } from "@models/materials/type.ts";
 import { productApi } from "@models/product/productApi.ts";
 import { useParams } from "react-router-dom";
 
-export const useSortedCards = (materials: Readonly<Material[]>) => {
+export const useSortedCards = (materials: Material[]) => {
   const { id } = useParams();
 
-  const { data, isLoading, isError } = productApi.useGetProductsQuery(
-    id as string,
-  );
+  const { data, isLoading, isError, isSuccess } =
+    productApi.useGetProductsQuery(id as string);
   const products = isArrayOfProducts(data) ? data : [];
 
   const [sortType, setSortType] = useState<Sort>("asc");
@@ -52,6 +51,7 @@ export const useSortedCards = (materials: Readonly<Material[]>) => {
     materialType,
     isLoading,
     isError,
+    isSuccess,
   };
 };
 

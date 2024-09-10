@@ -5,24 +5,20 @@ import { HeartIcon } from "@components/icons/HeartIcon.tsx";
 import clsx from "clsx";
 import { SuccessIcon } from "@components/icons/SuccessIcon.tsx";
 import { Price } from "@components/price/Price.tsx";
+import { Product } from "@models/product/types.ts";
 
-interface ProductCardProps {
-  id: string;
-  name: string;
-  code: string | null;
-  price: {
-    old_price?: number | null;
-    current_price: number;
-  };
-  image: {
-    url: string;
-  };
-  material: number;
-}
+type ProductCardProps = {
+  isSuccess?: boolean;
+} & Product;
 
-const ProductCard: FC<ProductCardProps> = ({ code, name, image, price }) => {
+const ProductCard: FC<ProductCardProps> = ({
+  code,
+  name,
+  image,
+  price,
+  isSuccess,
+}) => {
   const onSale = !!price.old_price;
-  const isSuccess = true;
 
   return (
     <article
