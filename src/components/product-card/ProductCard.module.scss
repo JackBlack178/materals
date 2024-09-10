@@ -3,6 +3,7 @@
 .product_card {
   max-width: 336px;
 
+
   &__on_sale {
     position: relative;
 
@@ -84,6 +85,10 @@
 
     &__success {
       color: var(--color-green);
+    }
+
+    &_icon__favorite {
+      stroke: var(--color-red)
     }
 
     @include hover {

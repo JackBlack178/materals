@@ -1,5 +1,5 @@
 {
-  "materials" : [
+  "materials": [
     {
       "id": "1",
       "name": "Дерево"
@@ -9,7 +9,7 @@
       "name": "Металл"
     }
   ],
-  "category" : [
+  "category": [
     {
       "id": "1",
       "items": [
@@ -31,7 +31,7 @@
           "name": "Ручка, нержавеющ сталь",
           "code": "L423WH",
           "price": {
-            "old_price": 400.900,
+            "old_price": 400.9,
             "current_price": 355.555
           },
           "image": {
@@ -122,11 +122,33 @@
   ],
   "users": [
     {
+      "0": "1",
+      "1": "6",
       "id": "1",
       "name": "Petr",
       "email": "Petr@mail.com",
-      "favorites": [],
-      "groceryBasket": []
+      "favorites": [
+        "7",
+        "2",
+        "3",
+        "4",
+        "6",
+        "5",
+        "1"
+      ],
+      "groceryBasket": [
+        "7",
+        "3",
+        "4",
+        "6",
+        "5",
+        "1",
+        "8",
+        "2"
+      ],
+      "grocery": [
+        "7"
+      ]
     },
     {
       "id": "2",

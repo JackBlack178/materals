@@ -30,8 +30,8 @@ export const useSortedCards = (materials: Material[]) => {
     const newArr = [...products];
     return newArr.sort((a, b) =>
       sortType === "asc"
-        ? a.price.current_price - b.price.current_price
-        : b.price.current_price - a.price.current_price,
+        ? b.price.current_price - a.price.current_price
+        : a.price.current_price - b.price.current_price,
     );
   }, [sortType, products]);
 

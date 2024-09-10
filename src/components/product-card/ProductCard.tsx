@@ -9,6 +9,9 @@ import { Product } from "@models/product/types.ts";
 
 type ProductCardProps = {
   isSuccess?: boolean;
+  isFavorite?: boolean;
+  handleHeartClick: (productId: string, newState: boolean) => void;
+  handleBasketClick: (productId: string, newState: boolean) => void;
 } & Product;
 
 const ProductCard: FC<ProductCardProps> = ({
@@ -17,6 +20,10 @@ const ProductCard: FC<ProductCardProps> = ({
   image,
   price,
   isSuccess,
+  id,
+  handleHeartClick,
+  isFavorite,
+  handleBasketClick,
 }) => {
   const onSale = !!price.old_price;
 
@@ -50,6 +57,7 @@ const ProductCard: FC<ProductCardProps> = ({
             <li className={cl.product_card__button_item}>
               {isSuccess ? (
                 <button
+                  onClick={() => handleBasketClick(id, !isSuccess)}
                   className={clsx(
                     cl.product_card__button,
                     cl.product_card__button__success,
@@ -58,15 +66,25 @@ const ProductCard: FC<ProductCardProps> = ({
                   <SuccessIcon />
                 </button>
               ) : (
-                <button className={cl.product_card__button}>
+                <button
+                  className={cl.product_card__button}
+                  onClick={() => handleBasketClick(id, !isSuccess)}
+                >
                   <GroceryBasketIcon />
                 </button>
               )}
             </li>
 
             <li className={cl.product_card__button_item}>
-              <button className={cl.product_card__button}>
-                <HeartIcon />
+              <button
+                className={clsx(cl.product_card__button)}
+                onClick={() => handleHeartClick(id, !isFavorite)}
+              >
+                <HeartIcon
+                  className={
+                    isFavorite ? cl.product_card__button_icon__favorite : ""
+                  }
+                />
               </button>
             </li>
           </ul>
