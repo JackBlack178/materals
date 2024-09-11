@@ -1,4 +1,4 @@
-@import '@styles/styles';
+@import "@styles/styles";
 
 .product_card {
   max-width: 336px;
@@ -7,7 +7,7 @@
     position: relative;
 
     &:after {
-      content: 'Скидка';
+      content: "Скидка";
 
       position: absolute;
       top: 11px;
@@ -45,7 +45,6 @@
     font-size: 16px;
     margin-bottom: 10px;
     font-weight: 500;
-
   }
 
   &__more_info {

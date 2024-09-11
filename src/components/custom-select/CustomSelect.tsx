@@ -30,7 +30,19 @@ const CustomSelect: FC<CustomSelectProps> = ({
       <Select
         value={value}
         onChange={handleChange}
+        className={cl.select__item}
         IconComponent={() => <ArrowDownicon className={cl.select__icon} />}
+        sx={{
+          "& .MuiOutlinedInput-notchedOutline": {
+            border: "none",
+          },
+
+          "& .MuiSelect-select": {
+            padding: "8px 16px",
+            fontSize: "14px",
+            fontFamily: "SF Pro",
+          },
+        }}
       >
         {options.map((option, index) => (
           <MenuItem key={index} value={option.value}>

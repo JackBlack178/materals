@@ -21,19 +21,16 @@
       position: relative;
 
       &:after {
-        content: '/';
+        content: "/";
         position: absolute;
         top: 0;
         right: calc(var(--columnGap) / 2 * -1);
-
-
       }
     }
 
     &:last-child {
       color: var(--color-dark);
     }
-
   }
 
   &__link {

@@ -13,7 +13,7 @@ export const productApi = createApi({
       query: (categoryId) => `${baseUrl}/category/${categoryId}`,
       transformResponse: async (response: { items: Product[] }) => {
         await new Promise((resolve) => {
-          setTimeout(resolve, 1000);
+          setTimeout(resolve, 1000); //Искусственная задержка
         });
         return productArraySchema.parse(response.items);
       },

@@ -2,10 +2,10 @@ import { useState } from "react";
 
 export const useChangeCardState = () => {
   const [favorites, setFavorites] = useState<string[]>(() =>
-    getArrayFromLocalStorage("favorites"),
+    getArrayFromLocalStorage<string>("favorites"),
   );
   const [groceryBasket, setGroceryBasket] = useState<string[]>(() =>
-    getArrayFromLocalStorage("grocery_basket"),
+    getArrayFromLocalStorage<string>("grocery_basket"),
   );
 
   const handleHeartClick = (productId: string, newState: boolean) => {

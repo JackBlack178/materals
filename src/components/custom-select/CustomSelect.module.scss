@@ -1,8 +1,17 @@
+@import "@styles/styles";
+
 .select {
+  transition-duration: var(--duration);
+
+  @include hover {
+    opacity: 0.6;
+  }
 
   &__icon {
-    width: 24px !important;
-    height: 24px !important;
+    width: 34px;
+    aspect-ratio: 1; //Чтобы иконка была размера 17 на 10 px
     margin-right: 16px;
+  }
+  &__item {
   }
 }
