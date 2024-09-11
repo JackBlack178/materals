@@ -1,15 +1,31 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SelectChangeEvent } from "@mui/material";
-import { isArrayOfProducts } from "@models/product/types.ts";
+import { isArrayOfProducts, Product } from "@models/product/types.ts";
 import { Material } from "@models/materials/type.ts";
-import { productApi } from "@models/product/productApi.ts";
-import { useParams } from "react-router-dom";
+import { data as items } from "../../../constants.ts";
 
 export const useSortedCards = (materials: Material[]) => {
-  const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [data, setData] = useState<Product[]>([]);
 
-  const { data, isLoading, isError, isSuccess } =
-    productApi.useGetProductsQuery(id as string);
+  useEffect(() => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      try {
+        setData(items);
+        setIsSuccess(true);
+      } catch {
+        setIsSuccess(false);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    }, 1000);
+  }, []);
+
   const products = isArrayOfProducts(data) ? data : [];
 
   const [sortType, setSortType] = useState<Sort>("asc");
