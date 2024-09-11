@@ -11,7 +11,10 @@ export const productApi = createApi({
   endpoints: (builder) => ({
     getProducts: builder.query<any, string>({
       query: (categoryId) => `${baseUrl}/category/${categoryId}`,
-      transformResponse: (response: { items: Product[] }) => {
+      transformResponse: async (response: { items: Product[] }) => {
+        await new Promise((resolve) => {
+          setTimeout(resolve, 1000);
+        });
         return productArraySchema.parse(response.items);
       },
     }),

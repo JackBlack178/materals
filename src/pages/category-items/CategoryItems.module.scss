@@ -44,7 +44,7 @@
   }
 
   &__search_text {
-    padding-left:16px;
+    padding-left: 16px;
   }
 
   &__search_select {
@@ -52,18 +52,18 @@
   }
 
   &__list {
-      display: grid;
-      gap:40px 48px;
-      grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    gap: 40px 48px;
+    grid-template-columns: repeat(4, 1fr);
 
     @include desktop {
       grid-template-columns: repeat(3, 1fr);
-      gap:15px 20px;
+      gap: 15px 20px;
     }
 
     @include mobile {
       grid-template-columns: repeat(2, 1fr);
-      gap:15px 15px;
+      gap: 15px 15px;
     }
 
     @include mobile-s {
@@ -74,5 +74,10 @@
 
   &__item {
 
+  }
+
+  &__loader {
+    margin-inline: auto;
+    margin-top:20vh;
   }
 }

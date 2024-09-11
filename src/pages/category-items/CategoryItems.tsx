@@ -9,6 +9,7 @@ import { materialApi } from "@models/materials/materialApi.ts";
 import { productApi } from "@models/product/productApi.ts";
 
 import { useChangeCardState } from "@pages/category-items/useChangeCardState.ts";
+import { Loader } from "@components/loader/Loader.tsx";
 
 const routes = [
   {
@@ -106,7 +107,7 @@ const CategoryItems = () => {
           </ul>
         </div>
       )}
-      {isLoading && <h1>Загрузка товаров</h1>}
+      {isLoading && <Loader className={cl.products__loader} />}
       {isError && <h1>Произошла ошибка. Проверьте подключение к интернету</h1>}
     </section>
   );
