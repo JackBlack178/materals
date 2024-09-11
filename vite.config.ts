@@ -4,7 +4,7 @@ import * as path from "node:path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/materials/", // замените <your-repo-name> на имя вашего репозитория
+  base: "/materials/",
   server: {
     strictPort: true,
     port: 80,
