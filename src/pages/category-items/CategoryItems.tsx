@@ -14,15 +14,15 @@ import { Loader } from "@components/loader/Loader.tsx";
 const routes = [
   {
     name: "Главная",
-    to: "/",
+    to: "/materials",
   },
   {
     name: "Системы хранения",
-    to: "/category/1",
+    to: "/materials",
   },
   {
     name: "Комплект стеллажных систем",
-    to: "/category/1/series/1",
+    to: "/materials",
   },
 ];
 

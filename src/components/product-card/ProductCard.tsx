@@ -26,12 +26,13 @@ const ProductCard: FC<ProductCardProps> = ({
   handleBasketClick,
 }) => {
   const onSale = !!price.old_price;
+  const imageUrl = import.meta.env.VITE_BASE_GIT_URL + image.url;
 
   return (
     <article
       className={clsx(cl.product_card, onSale && cl.product_card__on_sale)}
     >
-      <img className={cl.product_card__image} src={image.url} alt={""} />
+      <img className={cl.product_card__image} src={imageUrl} alt={""} />
       <div className={cl.product_card__body}>
         <span
           className={clsx(
