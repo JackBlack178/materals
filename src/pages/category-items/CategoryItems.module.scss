@@ -16,7 +16,6 @@
   }
 
   &__body {
-
   }
 
   &__search_list {
@@ -38,9 +37,6 @@
     flex-direction: column;
     row-gap: 6px;
 
-    @include mobile-s {
-
-    }
   }
 
   &__search_text {
@@ -73,11 +69,10 @@
   }
 
   &__item {
-
   }
 
   &__loader {
     margin-inline: auto;
-    margin-top:20vh;
+    margin-top: 20vh;
   }
 }

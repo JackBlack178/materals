@@ -4,8 +4,6 @@
   --columnGap: 35px;
 
   &__list {
-
-
     display: flex;
     flex-wrap: wrap;
     row-gap: 10px;
@@ -14,7 +12,6 @@
     @include tablet {
       --columnGap: 25px;
     }
-    
   }
 
   &__item {
@@ -26,8 +23,8 @@
       &:after {
         content: '/';
         position: absolute;
-        top:0;
-        right:calc(var(--columnGap) / 2 * -1);
+        top: 0;
+        right: calc(var(--columnGap) / 2 * -1);
 
 
       }
@@ -42,9 +39,9 @@
   &__link {
     text-decoration: none;
     transition-duration: var(--duration);
-    color:inherit;
+    color: inherit;
 
-    @include fluid-text(16,14);
+    @include fluid-text(16, 14);
 
     @include hover {
       opacity: 0.8;
