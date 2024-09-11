@@ -119,39 +119,5 @@
         }
       ]
     }
-  ],
-  "users": [
-    {
-      "0": "1",
-      "1": "6",
-      "id": "1",
-      "name": "Petr",
-      "email": "Petr@mail.com",
-      "favorites": [
-        "6",
-        "5",
-        "4",
-        "3",
-        "7",
-        "2"
-      ],
-      "groceryBasket": [
-        "6",
-        "5",
-        "3",
-        "4",
-        "1"
-      ],
-      "grocery": [
-        "7"
-      ]
-    },
-    {
-      "id": "2",
-      "name": "Ivan",
-      "email": "Ivan@mail.com",
-      "favorites": [],
-      "groceryBasket": []
-    }
   ]
 }

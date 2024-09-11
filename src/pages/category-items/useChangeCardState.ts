@@ -1,50 +1,52 @@
-import { useContext } from "react";
-import { UserContext } from "@utils/AuthProvider.tsx";
-import { userApi } from "@models/user/userApi.ts";
-import { isUser } from "@models/user/type.ts";
+import { useState } from "react";
 
 export const useChangeCardState = () => {
-  const userId = useContext(UserContext);
-  const { data } = userApi.useGetUserQuery(userId);
-  const user = isUser(data) ? data : null;
-  const favorites = user?.favorites;
-  const groceryBasket = user?.groceryBasket;
-
-  const [changeFavoriteState] = userApi.useChangeFavoriteStateMutation();
-  const [changeGroceryState] = userApi.useChangeGroceryStateMutation();
+  const [favorites, setFavorites] = useState<string[]>(() =>
+    getArrayFromLocalStorage("favorites"),
+  );
+  const [groceryBasket, setGroceryBasket] = useState<string[]>(() =>
+    getArrayFromLocalStorage("grocery_basket"),
+  );
 
   const handleHeartClick = (productId: string, newState: boolean) => {
-    if (userId && favorites) {
-      let newArray = [];
-      if (newState) newArray = [...favorites, productId];
-      else {
-        newArray = [...favorites].filter((id) => id !== productId);
-      }
-
-      changeFavoriteState({
-        userId,
-        newState: newArray,
-        productId,
-      });
-    }
+    const newArray = changeIdStateInArray(favorites, productId, newState);
+    localStorage.setItem("favorites", JSON.stringify(newArray));
+    setFavorites(newArray);
   };
-
   const handleBasketClick = (productId: string, newState: boolean) => {
-    if (userId && groceryBasket) {
-      let newArray = [];
-      if (newState) newArray = [...groceryBasket, productId];
-      else {
-        newArray = [...groceryBasket].filter((id) => id !== productId);
-      }
-      console.log(newArray);
-
-      changeGroceryState({
-        userId,
-        newState: newArray,
-        productId,
-      });
-    }
+    const newArray = changeIdStateInArray(groceryBasket, productId, newState);
+    localStorage.setItem("grocery_basket", JSON.stringify(newArray));
+    setGroceryBasket(newArray);
   };
 
   return { handleBasketClick, handleHeartClick, favorites, groceryBasket };
 };
+
+function getArrayFromLocalStorage<T>(key: string): T[] {
+  const storedValue = localStorage.getItem(key);
+
+  if (storedValue) {
+    try {
+      const parsedValue: T[] = JSON.parse(storedValue);
+      return Array.isArray(parsedValue) ? parsedValue : [];
+    } catch (error) {
+      console.error("Error parsing JSON from localStorage:", error);
+      return [];
+    }
+  }
+
+  return [];
+}
+
+function changeIdStateInArray(
+  arrOfIds: string[],
+  productId: string,
+  newState: boolean,
+) {
+  let newArray = [];
+  if (newState) newArray = [...arrOfIds, productId];
+  else {
+    newArray = [...arrOfIds].filter((id) => id !== productId);
+  }
+  return newArray;
+}
