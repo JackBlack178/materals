@@ -83,7 +83,7 @@ const CategoryItems = () => {
               />
             </li>
             <li className={cl.products__search_item}>
-              <span className={cl.products__search_text}>Сортировать по:</span>
+              <span className={cl.products__search_text}>Материал:</span>
               <CustomSelect
                 handleChange={handleMaterialChange}
                 value={materialType}
