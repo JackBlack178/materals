@@ -1,4 +1,4 @@
-# Стек
+# Стек (Ветка clientWithFakeApi)
 1. React, TS, Redux Toolkit, react router dom (для роутинга и префетчинга данных)
 2. Json-server, RTK query и zod (для получения данных и их валидации)
 3. SASS + CSS Modules + BEM для стилизации
